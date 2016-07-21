@@ -1,5 +1,6 @@
 main = do
   contents <- readFile "input"
+
   print $ floorsTravelledUntilBasementEntered contents
 
 floorsTravelledUntilBasementEntered movements =
@@ -8,11 +9,9 @@ floorsTravelledUntilBasementEntered movements =
   $ traverseLevels
   $ map parseChar movements
 
-add a b = a + b
-
 aboveBasement level = 0 <= level
 
-traverseLevels levels = scanl add 0 levels
+traverseLevels levels = scanl (+) 0 levels
 
 parseChar char =
   case char of
